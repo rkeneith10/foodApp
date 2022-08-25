@@ -41,13 +41,13 @@ exports.listRestaurants = async (req, res) => {
         });
       }
       if (!restaurants) {
-        res.json({
+        res.status(400).json({
           success: false,
           error: "No Restaurant",
         });
       }
 
-      res.json({
+      res.status(200).json({
         success: true,
         allRestaurants: restaurants,
       });
