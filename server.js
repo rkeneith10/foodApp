@@ -18,7 +18,7 @@ app.use(bodyparser.urlencoded({ extented: true }));
 app.use(bodyparser.json());
 app.use(cors());
 
-app.get("/", (req, res) => res.send("Hello World!"));
+app.get("/", (req, res) => res.send("Hello World test!"));
 
 app.use("/api", userRoute);
 app.use("/api", menuRoute);
