@@ -48,8 +48,8 @@ exports.listRestaurants = async (req, res) => {
       }
 
       res.status(200).json({
-        success: true,
-        allRestaurants: restaurants,
+        // success: true,
+        restaurants,
       });
     })
     .catch((err) => console.log(err));
