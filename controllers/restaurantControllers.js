@@ -47,10 +47,10 @@ exports.listRestaurants = async (req, res) => {
         });
       }
 
-      res.status(200).json({
-        // success: true,
+      res.status(200).json(
+      
       restaurants,
-      });
+      );
     })
     .catch((err) => console.log(err));
 };
