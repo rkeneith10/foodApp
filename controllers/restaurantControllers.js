@@ -6,7 +6,7 @@ const restaurantModel = require("../models/restaurants");
 
 exports.addRestaurant = async (req, res) => {
   const { restaurant_name, adress, telephone } = req.body;
-  // const { street, city, country } = adress;
+ 
   const restaurantExist = await restaurantModel.findOne({ restaurant_name });
 
   if (!restaurantExist) {
