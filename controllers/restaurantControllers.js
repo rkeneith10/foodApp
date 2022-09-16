@@ -12,8 +12,8 @@ exports.addRestaurant = async (req, res) => {
   if (!restaurantExist) {
     const restaurants = new restaurantModel({
       restaurant_name: restaurant_name,
-      adress: adress
-      telephone: telephone,
+      adress: adress,
+      telephone:telephone
     });
 
     await restaurants.save();
@@ -60,9 +60,9 @@ exports.getOneRestaurant = async (req, res) => {
       message: "No data found",
     });
   }
-  res.json(
-    success: true,
-    data: oneCategory,
+  res.status(200).json(
+   
+     oneCategory,
   );
 };
 
