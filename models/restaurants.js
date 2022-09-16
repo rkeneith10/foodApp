@@ -6,16 +6,14 @@ const schemaRestaurant = new mongoose.Schema({
     type: String,
   },
   adress: {
-    street: String,
-    city: String,
-    country: String,
+    type:String,
   },
   telephone: {
     type: String,
   },
-  // menus: {
-  //   type: [{}],
-  // },
+  menus: {
+    type: [{}],
+  },
 });
 
 const restaurants = mongoose.model("restaurants", schemaRestaurant);

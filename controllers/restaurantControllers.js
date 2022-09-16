@@ -6,17 +6,13 @@ const restaurantModel = require("../models/restaurants");
 
 exports.addRestaurant = async (req, res) => {
   const { restaurant_name, adress, telephone } = req.body;
-  const { street, city, country } = adress;
+  // const { street, city, country } = adress;
   const restaurantExist = await restaurantModel.findOne({ restaurant_name });
 
   if (!restaurantExist) {
     const restaurants = new restaurantModel({
       restaurant_name: restaurant_name,
-      adress: {
-        street: street,
-        city: city,
-        country: country,
-      },
+      adress: adress
       telephone: telephone,
     });
 
@@ -64,10 +60,10 @@ exports.getOneRestaurant = async (req, res) => {
       message: "No data found",
     });
   }
-  res.json({
+  res.json(
     success: true,
     data: oneCategory,
-  });
+  );
 };
 
 exports.updateRestaurant = async (req, res) => {
