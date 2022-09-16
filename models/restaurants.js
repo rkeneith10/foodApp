@@ -11,9 +11,9 @@ const schemaRestaurant = new mongoose.Schema({
   telephone: {
     type: String,
   },
-  menus: {
-    type: [{}],
-  },
+  // menus: {
+  //   type: [{}],
+  // },
 });
 
 const restaurants = mongoose.model("restaurants", schemaRestaurant);
