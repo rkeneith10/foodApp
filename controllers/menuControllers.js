@@ -46,7 +46,7 @@ exports.getMenu = async (req, res) => {
       
       menus,
       );
-    })
+    }).sort({category:1})
     .catch((err) => console.log(err));
 };
 
