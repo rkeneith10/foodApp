@@ -28,7 +28,7 @@ exports.addCategorry = async (req, res) => {
 
 exports.getMenu = async (req, res) => {
   await MenuItemModel
-    .find({restaurant_name:req.body.restaurant_name}, (err, menus) => {
+    .find({restaurant_name:"Lakay Bar Restaurant"}, (err, menus) => {
       if (err) {
         res.json({
           success: false,
