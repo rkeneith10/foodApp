@@ -53,8 +53,8 @@ exports.listRestaurants = async (req, res) => {
 
 exports.getOneRestaurant = async (req, res) => {
   const restaurantId = req.params.id;
-  const oneCategory = await restaurantModel.findOne({ _id: restaurantId });
-  if (!oneCategory) {
+  const oneRestaurant = await restaurantModel.findById({ _id: restaurantId });
+  if (!oneRestaurant) {
     res.json({
       success: false,
       message: "No data found",
@@ -62,7 +62,7 @@ exports.getOneRestaurant = async (req, res) => {
   }
   res.status(200).json(
    
-     oneCategory,
+     oneRestaurant,
   );
 };
 

@@ -52,17 +52,17 @@ exports.getMenu = async (req, res) => {
 
 
 exports.getCategory = async (req, res) => {
-  const allCategories = await CategoryModel.find();
-  res.json(allCategories);
+  const allCategories = await CategoryModel.find().sort({category_name:1});
+  res.status(200).json(allCategories);
 };
 
 exports.addMenu_item = async (req, res) => {
-  const { item_name, restaurant_name, description, price } = req.body;
+  const { item_name, restaurant_name, description, price ,category} = req.body;
 
   const newMenuItem = new MenuItemModel({
     restaurant_name: restaurant_name,
     item_name: item_name,
-    category: "Pizza",
+    category: category,
     description: description,
     price: price,
   });
