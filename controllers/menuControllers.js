@@ -26,6 +26,31 @@ exports.addCategorry = async (req, res) => {
   }
 };
 
+exports.getMenu = async (req, res) => {
+  await MenuItemModel
+    .find({restaurant_name:req.body.restaurant_name}, (err, menus) => {
+      if (err) {
+        res.json({
+          success: false,
+          error: err,
+        });
+      }
+      if (!menus) {
+        res.status(400).json(
+          
+          {error: "No Menu item"}
+        );
+      }
+
+      res.status(200).json(
+      
+      menus,
+      );
+    })
+    .catch((err) => console.log(err));
+};
+
+
 exports.getCategory = async (req, res) => {
   const allCategories = await CategoryModel.find();
   res.json(allCategories);
