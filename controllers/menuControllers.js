@@ -26,9 +26,9 @@ exports.addCategorry = async (req, res) => {
   }
 };
 
-exports.getMenu = async (req, res) => {
+exports.getMenuscd = async (req, res) => {
   await MenuItemModel
-    .find({restaurant_name:"Lakay Bar Restaurant"}, (err, menus) => {
+    .find({restaurant_name:req.body.restaurant_name}, (err, menus) => {
       if (err) {
         res.json({
           success: false,
@@ -46,9 +46,29 @@ exports.getMenu = async (req, res) => {
       
       menus,
       );
-    }).sort({category:1})
+    })
     .catch((err) => console.log(err));
 };
+
+exports.getMenu= async (req,res)=>{
+  const response=await MenuItemModel.aggregate([cd cdcd
+       {
+          $group: {
+            _id: "$_id",
+            category: { $last: "$category" },
+           
+            
+          },
+        },
+        {$match:{restaurant_name:req.body.restaurant_name}}
+        ]);
+  if(response){
+    res.status(200).json(
+      response);
+  }
+
+};
+
 
 
 exports.getCategory = async (req, res) => {
