@@ -51,7 +51,7 @@ exports.getMenuscd = async (req, res) => {
 };
 
 exports.getMenu= async (req,res)=>{
-  const response=await MenuItemModel.aggregate([cd cdcd
+  const response=await MenuItemModel.aggregate([
        {
           $group: {
             _id: "$_id",
