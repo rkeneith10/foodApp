@@ -57,6 +57,7 @@ exports.getMenu= async (req,res)=>{
           $group: {
             _id: "$_id",
             category:{$last:"$category"},
+            item_name: {$last:"$item_name"},
            
            
             
@@ -69,7 +70,7 @@ exports.getMenu= async (req,res)=>{
             item_name: {$last:"$item_name"},
            
           },
-        },
+        }
         
         ]);
   if(response){
