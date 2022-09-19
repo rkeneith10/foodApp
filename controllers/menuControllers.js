@@ -56,10 +56,18 @@ exports.getMenu= async (req,res)=>{
        {
           $group: {
             _id: "$_id",
-            category:{$last:"$category"}
+            category:{$last:"$category"},
            
            
             
+          },
+        },
+         {
+          $project: {
+            _id: "$_id",
+            category: {$last:"$category"},
+            item_name: {$last:"$item_name"},
+           
           },
         },
         
