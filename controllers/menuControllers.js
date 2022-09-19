@@ -52,16 +52,17 @@ exports.getMenuscd = async (req, res) => {
 
 exports.getMenu= async (req,res)=>{
   const response=await MenuItemModel.aggregate([
-       // {
-       //    $group: {
-       //      _id: "$_id",
-       //      category:{$last:"$category"}
+    {$match:{restaurant_name:"Lakay Bar Restaurant"}},
+       {
+          $group: {
+            _id: "$_id",
+            category:{$last:"$category"}
            
            
             
-       //    },
-       //  },
-        {$match:{restaurant_name:"Lakay Bar Restaurant"}}
+          },
+        },
+        
         ]);
   if(response){
     res.status(200).json(
