@@ -63,14 +63,7 @@ exports.getMenu= async (req,res)=>{
             
           },
         },
-         {
-          $project: {
-            _id: "$_id",
-            category: {$last:"$category"},
-            item_name: {$last:"$item_name"},
-           
-          },
-        }
+    
         
         ]);
   if(response){
